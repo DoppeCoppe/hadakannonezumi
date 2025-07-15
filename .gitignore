@@ -1,0 +1,18 @@
+# Node.js
+node_modules/
+
+# 11ty build output
+_site/
+
+# OS・エディターごとのゴミファイル
+.DS_Store
+Thumbs.db
+
+# 環境変数
+.env
+
+# Netlify preview settings（万が一使う場合）
+.netlify/
+
+# VSCodeなどのエディター設定（任意）
+.vscode/

@@ -1,0 +1,87 @@
+a.fw-link {
+  color: #333;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+a.fw-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 5px;
+  background-color: #3362a8;
+  border-radius: 6px;
+  opacity: 1; /* 線の部分の調整↓も込み */
+  filter: blur(6px);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+a.fw-link:hover {
+  color: #f18d1d;
+}
+
+a.fw-link:hover::after {
+  opacity: 0.75;
+}
+
+
+/* ベース */
+*{box-sizing:border-box}
+body{
+	margin:0;
+	font-family:"Noto Sans JP",sans-serif;
+	background:#eceff1;
+	color:#111;
+	}
+
+.gallery{
+	display:grid;
+	grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+	gap:1rem;margin-top:1rem;
+	}
+.gallery img{
+	width:100%;
+	border-radius:8px;
+	box-shadow:0 2px 8px rgba(0,0,0,.15);
+	cursor:pointer;
+	transition:transform .2s;
+	}
+.gallery img:hover{
+	transform:translateY(-4px)}
+
+
+
+/* ===== ここから追加: スマホ最適化（480px 以下） ===== */
+@media (max-width:480px){
+  .gallery{grid-template-columns:1fr;}              /* 1 列表示 */
+  body{font-size:95%;}
+  #lightbox img{max-width:95%;max-height:70%;}
+  #lightbox #caption{font-size:1rem;padding:0 .5rem;}
+}
+
+/* ── 3-1  吹き出しベース ───────────────── */
+.bubble{
+  --pad:2rem;               /* 内側余白・自在に調整 */
+  position:relative;
+  max-width:800px;          /* 任意：大きくしたいなら数値を上げる */
+  margin:5rem auto 3rem;    /* 画面中央寄せ */
+  padding:var(--pad);
+}
+
+/* ── 3-2  枠線を 4 枚画像でタイル表示 ─────── */
+.bubble{
+  background:
+    url("../img/fukidashi-top.png") repeat-x top left,
+    url("../img/fukidashi-right.png") repeat-y top right,
+    url("../img/fukidashi-bottom.png") repeat-x bottom left,
+    url("../img/fukidashi-left.png") repeat-y top left;
+  background-color:#fff;    /* 枠内の塗りつぶし色 */
+}
+
+img {
+height: 150px;
+}
